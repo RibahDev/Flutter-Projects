@@ -21,25 +21,25 @@ class _MyAppState extends State<MyApp> {
         foregroundColor: Color.fromARGB(226, 255, 255, 255),
         backgroundColor: Colors.black,
       ),
-      body: Column(children: [
+      body: Column(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
         Center(
           child: Text(
-            'Meu Aplicativo',
-            style: TextStyle(fontSize: 12),
+            'Coluna 1',
+            style: TextStyle(fontSize: 28),
           ),
         ),
         Center(
           child: Text(
-            'Meu Aplicativo',
-            style: TextStyle(fontSize: 12),
+            'Coluna 2',
+            style: TextStyle(fontSize: 28),
           ),
         ),
         Center(
           child: Text(
-            'Meu Aplicativo',
-            style: TextStyle(fontSize: 12),
+            'Coluna 3',
+            style: TextStyle(fontSize: 28),
           ),
-        )
+        ),
       ]),
     ));
   }
