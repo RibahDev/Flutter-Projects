@@ -12,7 +12,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  String numero = 'Número';
+  String numero = '0';
 
   double primeiroNumero = 0.0;
 
@@ -48,16 +48,37 @@ class _MyAppState extends State<MyApp> {
         break;
 
       case '+':
+      case '-':
+      case 'X':
+      case '/':
         operacao = tecla;
+        numero = numero.replaceAll(',', '.');
         primeiroNumero = double.parse(numero);
+        numero = numero.replaceAll('.', ',');
         numero = '0';
         break;
 
       case '=':
         double resultado = 0.0;
 
+        if (operacao == '/') {
+          if (double.parse(numero) * 1 == 0) {
+            print('ERRO: divisão por 0');
+            return;
+          }
+        }
+
         if (operacao == '+') {
           resultado = primeiroNumero + double.parse(numero);
+        }
+        if (operacao == '-') {
+          resultado = primeiroNumero - double.parse(numero);
+        }
+        if (operacao == 'X') {
+          resultado = primeiroNumero * double.parse(numero);
+        }
+        if (operacao == '/') {
+          resultado = primeiroNumero / double.parse(numero);
         }
 
         String resultadoString = resultado.toString();
@@ -75,6 +96,15 @@ class _MyAppState extends State<MyApp> {
             numero = resultado.toString();
           });
         }
+
+        break;
+
+      case '<X':
+        setState(() {
+          if (numero.length > 0) {
+            numero = numero.substring(0, numero.length - 1);
+          }
+        });
 
         break;
 
@@ -129,12 +159,8 @@ class _MyAppState extends State<MyApp> {
                 Text(''),
                 Text(''),
                 GestureDetector(
-                  onTap: () => calcular('<X'),
-                  child: Text(
-                    '<X',
-                    style: TextStyle(fontSize: 48),
-                  ),
-                )
+                    onTap: () => calcular('<X'),
+                    child: Image.asset('assets/images/delete.png', width: 52,)),
               ],
             ),
             Row(
