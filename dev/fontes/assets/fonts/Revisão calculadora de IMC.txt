@@ -1,0 +1,14 @@
+Revisão calculadora de IMC
+Pontos de destaque
+- Usou validators
+- Trocar a cor do texto dependendo do imc ficou ótimo
+- Funcionou perfeitamente, atendeu todos os pontos da atividade
+
+Dicas
+- Ao clicar em calcular, existe uma forma no flutter de fazer o teclado fechar: você executa FocusManager.instance.primaryFocus?.unfocus();
+- Ao resetar a cor ao resetar os campos
+- Alguns trechos do código ficaram com warning, alguns deles podem ser resolvidos colocando um const, e os outros foram porque faltou {}, uma dica é utilizar o atalho ctrl + . ou passar o mouse em cima e clicar na lâmpada, ele apresenta uma solução rápida para maioria dos casos
+- Uma boa prática para uma refatoração futuramente seria criar arquivos separados para as classes, como por exemplo:
+> main.dart
+> home_screen.dart
+> pessoa_model.dart
